@@ -25,7 +25,7 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 
-function Login() {
+function Login({onLoadUser, testClick}) {
     const navigate = useNavigate();
     const [activeUser, setActiveUser] = useState({});
 
@@ -33,6 +33,8 @@ function Login() {
     
         try {
             
+            testClick('user.displayName');
+
             signInWithPopup(auth, provider)
             .then((result) => {
             // This gives you a Google Access Token. You can use it to access the Google API.
@@ -46,7 +48,14 @@ function Login() {
                 token,
                 user
             });
-            setActiveUser(user);
+            testClick(user.displayName);
+            onLoadUser(user);
+            const objectitoParaguardar = {
+                nombre: user.displayName
+            };
+
+            // firesbase.firestore.collection('acconts').createOrUpdateDoc({id: genId, ...objectitoParaGuardar });
+
             }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
