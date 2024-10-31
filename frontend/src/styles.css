@@ -1,148 +1,224 @@
+/* Estilo general del cuerpo */
 body {
-    background-color: #1e1b1b;
-    color: #f0e6d2;
     font-family: 'Garamond', serif;
+    background-color: #1e1e1e;
+    color: #e0d6b4;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor general */
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo del encabezado */
+h1, h2, h3 {
+    font-family: 'Georgia', serif;
+    color: #d4af37;
     text-align: center;
 }
 
-h1 {
-    font-size: 3em;
-    margin-top: 20px;
-    color: #d4af37;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-h2 {
-    font-size: 2em;
-    margin-bottom: 20px;
-    color: #d4af37;
-    text-shadow: 2px 2px 4px #000000;
-}
-
-#characterCreation {
-    background-color: #2e2b2b;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #000000;
-    display: inline-block;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: left;
-    width: 50%;
-}
-
-#characterForm label {
-    display: block;
-    margin-top: 10px;
-}
-
-#characterForm input, #characterForm select {
-    background-color: #3c3939;
-    border: 1px solid #d4af37;
-    border-radius: 5px;
-    color: #f0e6d2;
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px;
+/* Navegación */
+/* Navegación con ancho fijo */
+nav {
     width: 100%;
+    max-width: 1200px; /* Fija un ancho máximo para el nav */
+    background-color: #444;
+    padding: 10px 0;
+    margin: 0 auto;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-button {
-    background-color: #d4af37;
-    border: none;
-    border-radius: 5px;
-    color: #1e1b1b;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 10px;
-    padding: 10px 20px;
-}
-
-    button:hover {
-        background-color: #c29b2c;
+    nav ul {
+        display: flex;
+        gap: 20px;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
     }
 
-#gameBoard {
-    background-color: #2e2b2b;
-    border-radius: 10px;
-    box-shadow: 0 0 15px #000000;
-    margin: 20px auto;
-    padding: 20px;
-    text-align: left;
-    width: 80%;
+        nav ul li {
+            font-size: 18px;
+        }
+
+            nav ul li a {
+                color: #e0d6b4;
+                text-decoration: none;
+                padding: 8px 15px;
+                border-radius: 5px;
+                transition: background-color 0.3s;
+            }
+
+                nav ul li a:hover {
+                    background-color: #555;
+                    color: #d4af37;
+                }
+
+
+/* Botones */
+button, .button {
+    background-color: #d4af37;
+    color: #1e1e1e;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-#mapSection {
-    margin: 20px auto;
+    button:hover, .button:hover {
+        background-color: #e0b846;
+    }
+
+/* Formularios */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #555;
+        background-color: #333;
+        color: #e0d6b4;
+        border-radius: 5px;
+    }
+
+        form input:focus, form textarea:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+
+/* Estilo para mensajes y notificaciones */
+.alert {
+    padding: 10px;
+    background-color: #d9534f;
+    color: #ffffff;
+    border-radius: 5px;
     text-align: center;
 }
 
-    #mapSection img {
+.success {
+    background-color: #5cb85c;
+}
+
+/* Tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #555;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    color: #e0d6b4;
+}
+
+th {
+    background-color: #444;
+}
+
+td {
+    background-color: #333;
+}
+
+tr:nth-child(even) {
+    background-color: #444;
+}
+
+/* Links */
+a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+        color: #e0b846;
+    }
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    color: #555;
+}
+
+/* Página Login y Registro - Sin Navbar */
+.login-page, .register-page {
+    max-width: 500px;
+    width: 90%;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.7);
+    margin-top: 50px;
+}
+
+/* Mapa del juego */
+.map-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+    .map-container img {
+        max-width: 100%;
         border: 5px solid #d4af37;
         border-radius: 10px;
-        max-width: 80%;
-        box-shadow: 0 0 15px #000000;
     }
 
-#characterCreation, #characterList, #gameBoard, #chat, #mapSection {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container, .login-page, .register-page {
+        width: 95%;
+    }
 }
 
-#chatMessages {
-    height: 200px;
-    overflow-y: scroll;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-#chatForm input {
-    width: 80%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-#chatForm button {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-}
-#diceRoller {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-#diceType {
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-}
-
-#rollDice {
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background-color: #333;
-    color: #fff;
-    margin-top: 10px;
+/* Estilo básico para el enlace de registro */
+.register-link {
+    color: #d4af37; /* Color dorado */
     cursor: pointer;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Efecto de transición */
 }
 
-#diceResult {
-    font-size: 1.5em;
-    margin-top: 10px;
-}
+    /* Cambiar estilo al pasar el mouse */
+    .register-link:hover {
+        background-color: #d4af37;
+        color: #1e1e1e; /* Cambia el color del texto */
+        text-decoration: none;
+    }

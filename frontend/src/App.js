@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home';
 import Rol from './components/rol';
@@ -13,23 +13,33 @@ import Admin from './components/admin';
 import CreateCharacter from './components/createcharacter';
 import CharacterList from './components/characterlist';
 
+function AppContent() {
+    const location = useLocation();
+    const hideNavbarRoutes = ['/login', '/register'];
 
-function App() {
     return (
-        <Router>
-            <Navbar /> {/* Navbar visible en todas las páginas */}
+        <>
+            {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Navigate to="/login" />} /> {/* Redirige automáticamente a Login */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
                 <Route path="/rol" element={<Rol />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/news" element={<News />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/create-character" element={<CreateCharacter />} />
                 <Route path="/characters" element={<CharacterList />} />
             </Routes>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <Router>
+            <AppContent />
         </Router>
     );
 }
