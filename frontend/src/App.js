@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './styles.css';
 import { BrowserRouter as Router, Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import Navbar from './components/navbar';
@@ -12,17 +12,28 @@ import Register from './components/register';
 import Admin from './components/admin';
 import CreateCharacter from './components/createcharacter';
 import CharacterList from './components/characterlist';
+import AuthService from './auth/auth-service';
 
 function AppContent() {
     const location = useLocation();
+    
+    const [activeUser, setActiveUser] = useState(null);
+
     const hideNavbarRoutes = ['/login', '/register'];
+
+    function displayNamememe(user) {
+        console.log('imcoming user')
+        setActiveUser(user);
+    }
 
     return (
         <>
-            {!hideNavbarRoutes.includes(location.pathname) && <Navbar />}
+            {
+            activeUser ? (
+                <>
+                <Navbar />
             <Routes>
-                <Route path="/" element={<Navigate to="/login" />} /> {/* Redirige automáticamente a Login */}
-                <Route path="/login" element={<Login />} />
+                <Route path="/" element={<Rol />} /> {/* Redirige automï¿½ticamente a Login */}
                 <Route path="/register" element={<Register />} />
                 <Route path="/rol" element={<Rol />} />
                 <Route path="/contact" element={<Contact />} />
@@ -32,6 +43,16 @@ function AppContent() {
                 <Route path="/create-character" element={<CreateCharacter />} />
                 <Route path="/characters" element={<CharacterList />} />
             </Routes>
+                </>
+                
+            )
+            : 
+        (
+            <Login onLoadUser={displayNamememe} testClick={displayNamememe} />
+        )
+            }
+            {/* <AuthService onLoadUser={setActiveUser}></AuthService> */}
+            
         </>
     );
 }
