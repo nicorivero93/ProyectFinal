@@ -5,7 +5,7 @@ function Navbar() {
     const navigate = useNavigate();
 
     const handleLogout = async () => {
-        await fetch('/logout', {
+        await ({
             method: 'GET',
             credentials: 'include', // Para manejar las cookies con el backend
         });

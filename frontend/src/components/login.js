@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -84,13 +84,6 @@ function Login({onLoadUser, testClick}) {
     
             <button onClick={() => handleLogin()}>Login with Google</button>
             {}
-            <p>¿No tienes una cuenta? <span onClick={() => navigate('/register')} className="register-link">Registrarse</span></p>
-            {
-                activeUser ?
-                <h2> {activeUser.displayName} </h2>
-                : <>No Active User</>
-            }
-
         </div>
     );
 }
