@@ -78,14 +78,32 @@ function Login({onLoadUser, testClick}) {
         }
     };
 
+    
+   
+    const handleLogout = () => {
+        navigate("/login"); // Redirige a la página de login
+        /*
+        signOut(auth)
+            .then(() => {
+                console.log("Usuario deslogueado exitosamente");
+                setActiveUser(null);
+                onLoadUser(null); // Notifica que no hay usuario activo
+                navigate("/login"); // Redirige a la página de login
+            })
+            .catch((error) => {
+                console.error("Error al desloguearse:", error);/
+            });*/
+    };
+    
+
     return (
         <div className="login-container">
             <h2>Iniciar Sesión</h2>
     
             <button onClick={() => handleLogin()}>Login with Google</button>
-            {}
         </div>
-    );
+
+       );
 }
 
 export default Login;

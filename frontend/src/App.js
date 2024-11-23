@@ -19,7 +19,7 @@ function AppContent() {
     
     const [activeUser, setActiveUser] = useState(null);
 
-    const hideNavbarRoutes = ['/login', '/register'];
+    const hideNavbarRoutes = ['/login'];
 
     function displayNamememe(user) {
         console.log('imcoming user')
@@ -31,9 +31,11 @@ function AppContent() {
             {
             activeUser ? (
                 <>
+
+                
                 <Navbar />
             <Routes>
-                <Route path="/" element={<Rol />} /> {/* Redirige autom�ticamente a Login */}
+                <Route path="/" element={<Rol />} /> {/* Redirige automáticamente a luego del Login */}
                 <Route path="/register" element={<Register />} />
                 <Route path="/rol" element={<Rol />} />
                 <Route path="/contact" element={<Contact />} />
@@ -42,8 +44,10 @@ function AppContent() {
                 <Route path="/admin" element={<Admin />} />
                 <Route path="/create-character" element={<CreateCharacter />} />
                 <Route path="/characters" element={<CharacterList />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
                 </>
+            
                 
             )
             : 
@@ -51,7 +55,10 @@ function AppContent() {
             <Login onLoadUser={displayNamememe} testClick={displayNamememe} />
         )
             }
-            {/* <AuthService onLoadUser={setActiveUser}></AuthService> */}
+            {/* <AuthService onLoadUser={setActiveUser}></AuthService> 
+            <Route path="/login" element={<Login onLoadUser={setUser} />} />
+            <Route path="/" element={user ? <Home /> : <Login onLoadUser={setUser} />} />
+            */}
             
         </>
     );
